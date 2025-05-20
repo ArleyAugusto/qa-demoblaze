@@ -1,0 +1,22 @@
+# Pasta de dependências
+node_modules/
+
+# Arquivos temporários do Python e Robot Framework
+__pycache__/
+*.pyc
+*.log
+*.db
+
+# Arquivos ocultos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente
+.env
+
+# Relatórios e evidências (gerados automaticamente)
+reports/
+evidencias/
+
+# Configs locais do VS Code (opcional)
+.vscode/
