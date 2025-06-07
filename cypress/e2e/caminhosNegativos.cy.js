@@ -9,18 +9,18 @@ describe('Testes negativos Demoblaze', () => {
     telaPage.visitarSite();
   });
 
-  it('CT016 - Cadastro com usuário já existente', () => {
-    telaPage.realizarCadastro(usuario, senha);
-    cy.on('window:alert', (alertText) => {
-      expect(alertText).to.contains('Sign up successful.');
-    });
+ it('CT016 - Cadastro com usuário já existente', () => {
+  cy.on('window:alert', (alertText) => {
+    expect(alertText).to.contains('Sign up successful.');
+  });
+  telaPage.realizarCadastro(usuario, senha);
 
-    cy.reload();
+  cy.reload();
 
-    telaPage.realizarCadastro(usuario, senha);
-    cy.on('window:alert', (alertText) => {
-      expect(alertText).to.contains('This user already exist.');
+  cy.on('window:alert', (alertText) => {
+    expect(alertText).to.contains('This user already exist.');
     });
+  telaPage.realizarCadastro(usuario, senha);
   });
 
   it('CT017 - Cadastro com campo de usuário vazio', () => {

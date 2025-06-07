@@ -13,7 +13,9 @@ class TelaPage {
 
   preencherCadastro(usuario, senha) {
     cy.get('#sign-username').should('be.visible').type(usuario);
+    cy.wait(200);
     cy.get('#sign-password').should('be.visible').type(senha);
+    cy.wait(200);
   }
 
   confirmarCadastro() {
@@ -23,11 +25,13 @@ class TelaPage {
   realizarCadastro(usuario, senha) {
     this.abrirModalCadastro();
     this.preencherCadastro(usuario, senha);
+    cy.wait(200);
     this.confirmarCadastro();
   }
 
   preencherLogin(usuario, senha) {
     cy.get('#loginusername').should('be.visible').type(usuario);
+    cy.wait(200);
     cy.get('#loginpassword').should('be.visible').type(senha);
   }
 
@@ -56,6 +60,11 @@ class TelaPage {
     this.confirmarLogin();
   }
 
+  selecionarProduto(nomeProduto) {
+    // Clica no link do produto baseado no texto e na classe hrefch
+    cy.get('a.hrefch').contains(nomeProduto).click();
+  }
+
   adicionarProdutoAoCarrinho() {
     cy.get('.btn-success').contains('Add to cart').click();
   }
@@ -71,6 +80,25 @@ class TelaPage {
   confirmarCompra() {
     cy.get('button[onclick="purchaseOrder()"]').click();
   }
+
+  preencherCheckout(nome, pais, cidade, cartao, mes, ano) {
+  cy.get('#name').should('be.visible').type(nome);
+  cy.wait(200);
+  cy.get('#country').should('be.visible').type(pais);
+  cy.wait(200);
+  cy.get('#city').should('be.visible').type(cidade);
+  cy.get('#card').should('be.visible').type(cartao);
+  cy.get('#month').should('be.visible').type(mes);
+  cy.get('#year').should('be.visible').type(ano);
+  cy.get('button[onclick="purchaseOrder()"]').click();
+}
+
+validarConfirmacao() {
+  cy.get('.sweet-alert.showSweetAlert.visible h2')
+    .should('be.visible')
+    .and('contain.text', 'Thank you for your purchase!');
+  cy.get('.confirm.btn.btn-lg.btn-primary').click();
+}
 
 }
 

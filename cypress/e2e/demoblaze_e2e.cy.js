@@ -12,9 +12,9 @@ describe('Fluxo completo Demoblaze - Cadastro até Checkout', () => {
     telaPage.realizarCadastro(usuario, senha);
     telaPage.realizarLogin(usuario, senha);
     telaPage.selecionarProduto('Samsung galaxy s6')
-    telaPage.adicionarAoCarrinho();
-    telaPage.irParaCarrinho();
-    telaPage.fecharPedido();
+    telaPage.adicionarProdutoAoCarrinho();
+    telaPage.acessarCarrinho();
+    telaPage.abrirCheckout();
     telaPage.preencherCheckout('Arley', 'Brasil', 'São Paulo', '1234567812345678', '12', '2025');
     telaPage.validarConfirmacao();
   });

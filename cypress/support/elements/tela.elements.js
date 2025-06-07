@@ -28,4 +28,3 @@ export const BOTAO_COMPRAR = 'button[onclick="purchaseOrder()"]';
 export const MENSAGEM_CONFIRMACAO = '.sweet-alert.showSweetAlert.visible h2';
 export const BOTAO_OK_CONFIRMACAO = '.confirm.btn.btn-lg.btn-primary';
 export const DETALHES_PEDIDO = '.sweet-alert.showSweetAlert.visible p';
-
